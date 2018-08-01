@@ -169,7 +169,7 @@ new Vue({
       }
       const dadosCrachas = JSON.parse(json)
 
-      this.limpaCrachas()
+      this.removeTodosCrachas()
 
       dadosCrachas.map(cracha => this.incluiCracha(cracha))
     },
