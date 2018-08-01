@@ -23,7 +23,7 @@
 
 .cracha {
   position: relative;
-  background-image: url(/assets/images/cracha-layout.png);
+  background-image: url(../images/cracha-layout.png);
   background-size: cover;
   width: 124mm;
   height: 92mm;
