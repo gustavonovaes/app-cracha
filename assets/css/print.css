@@ -1,0 +1,12 @@
+@page {
+  margin: 0;
+  size: A4 landscape;
+}
+
+#app {
+  overflow: hidden;
+}
+
+.no-print {
+  display: none;
+}

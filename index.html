@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Cracha</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@0.5.0/modern-normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" media="print" href="assets/css/print.css">
+    </head>
+    <body>
+        <div id="app">
+            <aside class="controls no-print">
+                <button :disabled="isPaginaCompleta" @click="incluiCracha" class="controls__button">
+                    <img src="assets/images/baseline-add_circle-24px.svg">
+                </button>
+                <button :disabled="isPaginaVazia" @click="removeCracha" class="controls__button">
+                    <img src="assets/images/baseline-remove_circle-24px.svg">
+                </button>
+                <button @click="imprimir" class="controls__button">
+                    <img src="assets/images/baseline-print-24px.svg">
+                </button>
+            </aside>
+
+            <main class="page page--A4" ref="page"></main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

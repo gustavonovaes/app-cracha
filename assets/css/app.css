@@ -1,0 +1,105 @@
+.page {
+  background: white;
+
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.page--A4 {
+  height: 210mm;
+  width: 297mm;
+}
+
+.cracha {
+  position: relative;
+  background-image: url(/assets/images/cracha-layout.png);
+  background-size: cover;
+  width: 124mm;
+  height: 92mm;
+}
+
+.cracha__input {
+  position: absolute;
+  font-family: 'Open Sans';
+  font-size: 4mm;
+  width: 58mm;
+  line-height: 1em;
+  text-transform: uppercase;
+  overflow: hidden;
+  background-color: transparent;
+  outline: none;
+}
+
+.cracha__input--nomeCargo {
+  color: white;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-weight: bold;
+}
+
+.cracha__input--loja {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.cracha__foto {
+  position: absolute;
+  width: 29mm;
+  height: 39mm;
+  border: none;
+  outline: none;
+}
+
+.cracha__foto:hover {
+  cursor: pointer;
+}
+
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.controls__button {
+  width: 100%;
+  margin: 10px 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-border {
+  border: none;
+}
+
+.no-resize {
+  resize: none;
+}
