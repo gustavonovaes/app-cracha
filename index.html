@@ -18,9 +18,21 @@
                 <button :disabled="isPaginaCompleta" @click="incluiCracha" class="controls__button">
                     <img src="assets/images/baseline-add_circle-24px.svg">
                 </button>
+
                 <button :disabled="isPaginaVazia" @click="removeCracha" class="controls__button">
                     <img src="assets/images/baseline-remove_circle-24px.svg">
                 </button>
+
+                <button @click="salvar" class="controls__button">
+                    <img src="assets/images/baseline-save-24px.svg">
+                </button>
+
+                <button @click="restaurar" class="controls__button">
+                    <img src="assets/images/baseline-settings_backup_restore-24px.svg">
+                </button>
+
+                <hr>
+
                 <button @click="imprimir" class="controls__button">
                     <img src="assets/images/baseline-print-24px.svg">
                 </button>

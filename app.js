@@ -25,7 +25,6 @@ const crachaComponent = Vue.component('cracha', {
       default: 'ENDEREÇO DA LOJA'
     }
   },
-
   template: `
     <div class="cracha">
         <input style="display: none" 
@@ -75,12 +74,22 @@ const crachaComponent = Vue.component('cracha', {
                   v-model="loja"></textarea>
     </div>
   `,
+  mounted() {
+    this.atualizaImagem(this.foto)
+  },
   watch: {
     foto(value) {
-      this.$refs.foto.src = value
+      this.atualizaImagem(value)
     }
   },
   methods: {
+    atualizaImagem(imagem) {
+      if (!imagem) {
+        return
+      }
+
+      this.$refs.foto.src = imagem
+    },
     escolherImagem() {
       this.$refs.inputFile.click()
     },
@@ -93,6 +102,17 @@ const crachaComponent = Vue.component('cracha', {
       const reader = new FileReader()
       reader.addEventListener('load', () => { this.foto = reader.result }, false )
       reader.readAsDataURL(files[0])
+    },
+    export() {
+      return {
+        foto: this.foto,
+        nomeCargo: this.nomeCargo,
+        nomeCompleto: this.nomeCompleto,
+        rg: this.rg,
+        cpf: this.cpf,
+        matricula: this.matricula,
+        loja: this.loja,
+      }
     }
   }
 })
@@ -123,14 +143,35 @@ new Vue({
       const newCracha = new crachaComponent({ propsData })
       return newCracha.$mount()
     },
-    incluiCracha() {
-      const cracha = this.criaCracha({})
+    incluiCracha(propsData = {}) {
+      const cracha = this.criaCracha(propsData)
       this.$refs.page.appendChild(cracha.$el)
       this.crachas.push(cracha)
     },
     removeCracha() {
       const cracha = this.crachas.pop()
       this.$refs.page.removeChild(cracha.$el)
+    },
+    removeTodosCrachas() {
+      while (this.crachas.length) {
+        this.removeCracha()
+      }
+    },
+    salvar() {
+      const dadosCrachas = this.crachas.map(c => c.export())
+      localStorage.setItem('crachas', JSON.stringify(dadosCrachas))
+      alert('Salvo com sucesso!')
+    },
+    restaurar() {
+      const json = localStorage.getItem('crachas')
+      if (!json) {
+        return alert('Nenhum backup disponível...')
+      }
+      const dadosCrachas = JSON.parse(json)
+
+      this.limpaCrachas()
+
+      dadosCrachas.map(cracha => this.incluiCracha(cracha))
     },
     imprimir() {
       print()
